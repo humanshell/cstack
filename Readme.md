@@ -1,10 +1,10 @@
-# Stack
+# CStack
 
  C simple stack implementation.
 
 ## API
 
- Below is the public api currently provided by the "stack" library.
+ Below is the public api currently provided by the "cstack" library.
 
 ## Testing
 

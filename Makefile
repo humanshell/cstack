@@ -5,21 +5,21 @@ PREFIX ?= /usr/local
 
 CFLAGS = -O3 -std=c99 -Wall
 
-SRCS = src/stack.c
+SRCS = src/cstack.c
 
 OBJS = $(SRCS:.c=.o)
 
-all: build/libstack.a
+all: build/libcstack.a
 
 install: all
-	cp -f build/libstack.a $(PREFIX)/lib/libstack.a
-	cp -f src/stack.h $(PREFIX)/include/stack.h
+	cp -f build/libcstack.a $(PREFIX)/lib/libcstack.a
+	cp -f src/cstack.h $(PREFIX)/include/cstack.h
 
 uninstall:
-	rm -f $(PREFIX)/lib/libstack.a
-	rm -f $(PREFIX)/include/stack.h
+	rm -f $(PREFIX)/lib/libcstack.a
+	rm -f $(PREFIX)/include/cstack.h
 
-build/libstack.a: $(OBJS)
+build/libcstack.a: $(OBJS)
 	@mkdir -p build
 	$(AR) rcs $@ $^
 
