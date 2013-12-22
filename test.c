@@ -23,10 +23,32 @@ test_cstack_new() {
 
 static void
 test_cstack_node_new() {
-  cstack_node_t *node = cstack_node_new("a");
-  assert(node);
-  assert(node->next == NULL);
-  assert(node->val == "a");
+  char *sp = "a";
+  char c = 'a', *cp = &c;
+  int i = 1, *ip = &i;
+  float f = 1.0, *fp = &f;
+
+  // create nodes with different data types
+  cstack_node_t *node_s = cstack_node_new(sp);
+  cstack_node_t *node_c = cstack_node_new(cp);
+  cstack_node_t *node_i = cstack_node_new(ip);
+  cstack_node_t *node_f = cstack_node_new(fp);
+
+  // assert that all nodes were created
+  assert(node_s);
+  assert(node_c);
+  assert(node_i);
+  assert(node_f);
+
+  // assert all nodes have correct val's and next pointers
+  assert(node_s->next == NULL);
+  assert(node_s->val == sp);
+  assert(node_c->next == NULL);
+  assert(node_c->val == cp);
+  assert(node_i->next == NULL);
+  assert(node_i->val == ip);
+  assert(node_f->next == NULL);
+  assert(node_f->val == fp);
 }
 
 int
