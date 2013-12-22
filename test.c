@@ -17,7 +17,7 @@ static void
 test_() {}
 
 int
-main(int argc, const char **argv){
+main(int argc, const char **argv) {
   test();
   puts("... \x1b[32m100%\x1b[0m\n");
   return 0;
