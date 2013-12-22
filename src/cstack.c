@@ -7,7 +7,7 @@
 
 #include "cstack.h"
 
-/*
+/**
  * Allocate a new cstack_t
  * NULL on failure
  */
@@ -21,7 +21,7 @@ cstack_new() {
   return self;
 }
 
-/*
+/**
  * Allocates a new cstack_node_t
  * NULL on failure
  */
@@ -33,5 +33,23 @@ cstack_node_new(void *val) {
   self->next = NULL;
   self->val = val;
   return self;
+}
+
+/**
+ * Destroy the entire stack
+ */
+
+void
+cstack_destroy(cstack_t *self) {
+  unsigned int size = self->size;
+  cstack_node_t *next, *top = self->top;
+
+  while (size--) {
+    next = top->next;
+    CSTACK_FREE(top);
+    top = next;
+  }
+  
+  CSTACK_FREE(self);
 }
 
