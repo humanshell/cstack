@@ -1,7 +1,7 @@
 {
   "name": "cstack",
   "version": "0.0.1",
-  "repo": "clibs/cstack",
+  "repo": "humanshell/cstack",
   "description": "Simple stack data structure",
   "keywords": ["stack", "structure"],
   "license": "MIT",
