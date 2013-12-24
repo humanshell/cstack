@@ -6,6 +6,54 @@
 
  Below is the public api currently provided by the "cstack" library.
 
+### cstack_t \*cstack_new();
+
+ Allocate and initialize a `stack`.
+ 
+    cstack_t *stack = cstack_new();
+
+### cstack_node_t \*cstack_node_new(void \*val)
+
+ Allocate and initialize a `cstack_node_t` with the given val.
+
+    cstack_node_t *node = cstack_node_new("my value");
+    node->val; // "my value"
+
+### void cstack_push(cstack_t \*stack, void \*val)
+
+ Push the new val onto the top of the passed in stack.
+ 
+     cstack_push(stack, "value");
+     stack->top->val; // "value"
+     stack->size; // 1
+
+### void cstack_pop(cstack_t \*stack)
+
+ Pop the top val off the passed in stack.
+ 
+     cstack_pop(stack);
+     stack->top->val; // NULL
+     stack->size; // 0
+
+### void cstack_empty(cstack_t \*stack)
+
+ Remove all nodes from the passed in stack.
+ 
+     cstack_push(stack, "value 1");
+     cstack_push(stack, "value 2");
+     cstack_push(stack, "value 3");
+     stack->top->val; // "value 3"
+     stack->size; // 3
+     cstack_empty(stack);
+     stack->top->val; // NULL
+     stack->size; // 0
+
+### void cstack_destroy(cstack_t \*stack)
+
+ Completely destroy the passed in list and all nodes.
+ 
+     cstack_destroy(stack);
+
 ## Testing
 
     $ make test
