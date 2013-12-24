@@ -46,6 +46,20 @@ cstack_push(cstack_t *stack, void *val) {
 }
 
 /**
+ * Pop a node off the stack
+ */
+
+void
+cstack_pop(cstack_t *stack) {
+  if (stack->size) {
+    cstack_node_t *popped = stack->top;
+    stack->top = stack->top->next;
+    stack->size--;
+    CSTACK_FREE(popped);
+  }
+}
+
+/**
  * Destroy the entire stack
  */
 

@@ -65,6 +65,9 @@ void
 cstack_push(cstack_t *stack, void *val);
 
 void
+cstack_pop(cstack_t *stack);
+
+void
 cstack_destroy(cstack_t *stack);
 
 #ifdef __cplusplus
