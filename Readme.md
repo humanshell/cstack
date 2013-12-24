@@ -14,14 +14,14 @@
 
 ### cstack_node_t \*cstack_node_new(void \*val)
 
- Allocate and initialize a `cstack_node_t` with the given val.
+ Allocate and initialize a `cstack_node_t` with the given `val`.
 
     cstack_node_t *node = cstack_node_new("my value");
     node->val; // "my value"
 
 ### void cstack_push(cstack_t \*stack, void \*val)
 
- Push the new val onto the top of the passed in stack.
+ Push the new `val` onto the top of the passed in `stack`.
  
      cstack_push(stack, "value");
      stack->top->val; // "value"
@@ -29,7 +29,7 @@
 
 ### void cstack_pop(cstack_t \*stack)
 
- Pop the top val off the passed in stack.
+ Pop the top `val` off the passed in `stack`.
  
      cstack_pop(stack);
      stack->top->val; // NULL
@@ -37,7 +37,7 @@
 
 ### void cstack_empty(cstack_t \*stack)
 
- Remove all nodes from the passed in stack.
+ Remove all nodes from the passed in `stack`.
  
      cstack_push(stack, "value 1");
      cstack_push(stack, "value 2");
@@ -50,7 +50,7 @@
 
 ### void cstack_destroy(cstack_t \*stack)
 
- Completely destroy the passed in list and all nodes.
+ Completely destroy the passed in `stack` and all nodes.
  
      cstack_destroy(stack);
 
