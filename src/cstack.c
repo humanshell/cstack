@@ -60,20 +60,24 @@ cstack_pop(cstack_t *stack) {
 }
 
 /**
+ * Remove all nodes from the stack
+ */
+
+void
+cstack_empty(cstack_t *stack) {
+  if (stack->size) {
+    unsigned int size = stack->size;
+    while (size--) cstack_pop(stack);
+  }
+}
+
+/**
  * Destroy the entire stack
  */
 
 void
-cstack_destroy(cstack_t *self) {
-  unsigned int size = self->size;
-  cstack_node_t *next, *top = self->top;
-
-  while (size--) {
-    next = top->next;
-    CSTACK_FREE(top);
-    top = next;
-  }
-
-  CSTACK_FREE(self);
+cstack_destroy(cstack_t *stack) {
+  cstack_empty(stack);
+  CSTACK_FREE(stack);
 }
 

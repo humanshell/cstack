@@ -75,6 +75,17 @@ test_cstack_pop() {
   assert(strcmp(stack->top->val, "a") == 0);
   cstack_pop(stack);
   assert(stack->size == 0);
+  assert(stack->top == NULL);
+}
+
+static void
+test_cstack_empty() {
+  cstack_t *stack = cstack_new();
+  cstack_push(stack, "a");
+  cstack_push(stack, "b");
+  cstack_empty(stack);
+  assert(stack->size == 0);
+  assert(stack->top == NULL);
 }
 
 int
@@ -85,6 +96,7 @@ main(int argc, const char **argv) {
   test(cstack_node_new);
   test(cstack_push);
   test(cstack_pop);
+  test(cstack_empty);
   puts("... \x1b[32m100%\x1b[0m\n");
   return 0;
 }
