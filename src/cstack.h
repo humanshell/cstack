@@ -5,8 +5,8 @@
 // Copyright (c) 2013 Dominic Giglio <humanshell@gmail.com>
 //
 
-#ifndef __CSTACK_H__
-#define __CSTACK_H__
+#ifndef CSTACK_H
+#define CSTACK_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -77,5 +77,5 @@ cstack_destroy(cstack_t *stack);
 }
 #endif
 
-#endif /* __CSTACK_H__ */
+#endif /* CSTACK_H */
 
