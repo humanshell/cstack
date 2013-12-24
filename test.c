@@ -51,12 +51,26 @@ test_cstack_node_new() {
   assert(node_f->val == fp);
 }
 
+static void
+test_cstack_push() {
+  cstack_t *stack = cstack_new();
+  assert(stack->size == 0);
+  cstack_push(stack, "a");
+  assert(stack->size == 1);
+  assert(strcmp(stack->top->val, "a") == 0);
+  cstack_push(stack, "b");
+  assert(stack->size == 2);
+  assert(strcmp(stack->top->val, "b") == 0);
+  assert(strcmp(stack->top->next->val, "a") == 0);
+}
+
 int
 main(int argc, const char **argv) {
   printf("\ncstack_t: %ld\n", sizeof(cstack_t));
   printf("cstack_node_t: %ld\n", sizeof(cstack_node_t));
   test(cstack_new);
   test(cstack_node_new);
+  test(cstack_push);
   puts("... \x1b[32m100%\x1b[0m\n");
   return 0;
 }

@@ -43,15 +43,12 @@ typedef struct cstack_node {
 typedef struct {
   unsigned int size;
   cstack_node_t *top;
-  void (*push)(cstack_node_t *node);
-  void (*pop)(void);
-  void (*empty)(void);
 } cstack_t;
 
 
 /**
- * cstack_t node prototypes
- */ 
+ * cstack_node_t prototypes
+ */
 
 cstack_node_t *
 cstack_node_new(void *val);
@@ -65,7 +62,10 @@ cstack_t *
 cstack_new();
 
 void
-cstack_destroy(cstack_t *self);
+cstack_push(cstack_t *stack, void *val);
+
+void
+cstack_destroy(cstack_t *stack);
 
 #ifdef __cplusplus
 }

@@ -8,8 +8,7 @@
 #include "cstack.h"
 
 /**
- * Allocate a new cstack_t
- * NULL on failure
+ * Allocate a new cstack_t (NULL on failure)
  */
 
 cstack_t *
@@ -22,8 +21,7 @@ cstack_new() {
 }
 
 /**
- * Allocates a new cstack_node_t
- * NULL on failure
+ * Allocate a new cstack_node_t (NULL on failure)
  */
 
 cstack_node_t *
@@ -33,6 +31,18 @@ cstack_node_new(void *val) {
   self->next = NULL;
   self->val = val;
   return self;
+}
+
+/**
+ * Push a new node onto the stack
+ */
+
+void
+cstack_push(cstack_t *stack, void *val) {
+  cstack_node_t *node = cstack_node_new(val);
+  node->next = stack->top;
+  stack->top = node;
+  stack->size++;
 }
 
 /**
@@ -49,7 +59,7 @@ cstack_destroy(cstack_t *self) {
     CSTACK_FREE(top);
     top = next;
   }
-  
+
   CSTACK_FREE(self);
 }
 
